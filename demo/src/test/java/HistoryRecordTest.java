@@ -1,8 +1,9 @@
-import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import com.example.HistoryRecord;
 
 class HistoryRecordTest {
 

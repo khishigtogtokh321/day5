@@ -1,13 +1,15 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.amazonaws.services.s3.model.inventory.InventoryConfiguration;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.example.Inventory;
+import com.example.Product;
 
 class InventoryTest {
 
-    private InventoryConfiguration inventory;
+    private Inventory inventory;
 
     @BeforeEach
     void setUp() {
@@ -19,9 +21,8 @@ class InventoryTest {
         Product p = new Product("Бат", "Printer", "P001", 5, 200000);
         inventory.addProduct(p);
 
-        // Нөөцөд 1 бараа байна гэж шалгана
-        assertEquals(1, inventory.products.size());
-        assertEquals(5, inventory.products.get(0).getQuantity());
+        assertEquals(1, inventory.getProducts().size());
+        assertEquals(5, inventory.getProducts().get(0).getQuantity());
     }
 
     @Test
@@ -32,8 +33,8 @@ class InventoryTest {
         inventory.addProduct(p1);
         inventory.addProduct(p2);
 
-        assertEquals(1, inventory.products.size());
-        assertEquals(8, inventory.products.get(0).getQuantity());
+        assertEquals(1, inventory.getProducts().size());
+        assertEquals(8, inventory.getProducts().get(0).getQuantity());
     }
 
     @Test
@@ -45,7 +46,7 @@ class InventoryTest {
         boolean success = inventory.getProduct(requested);
 
         assertTrue(success);
-        assertEquals(5, inventory.products.get(0).getQuantity());
+        assertEquals(5, inventory.getProducts().get(0).getQuantity());
     }
 
     @Test
@@ -57,6 +58,7 @@ class InventoryTest {
         boolean success = inventory.getProduct(requested);
 
         assertFalse(success);
-        assertEquals(2, inventory.products.get(0).getQuantity());
+        assertEquals(2, inventory.getProducts().get(0).getQuantity());
     }
+
 }

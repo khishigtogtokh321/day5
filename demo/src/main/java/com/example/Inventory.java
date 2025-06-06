@@ -1,7 +1,6 @@
 package com.example;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.Product;
 
 public class Inventory {
     private List<Product> products;
@@ -11,7 +10,7 @@ public class Inventory {
     }
 
     public List<Product> getProducts() {
-    return products;
+        return products;
     }
 
     public void addProduct(Product product) {

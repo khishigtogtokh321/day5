@@ -1,10 +1,10 @@
+package com.example;
 import java.util.Scanner;
-
-public class AddProduct {
-    public Product addProduct() {
+public class GetProduct {
+    public Product getProduct() {
         Scanner read = new Scanner(System.in);
 
-        System.out.print("Нэмж буй хүний нэр: ");
+        System.out.print("Авж буй хүний нэр: ");
         String fName = read.nextLine();
         System.out.print("Барааны нэр: ");
         String pName = read.nextLine();
@@ -16,5 +16,5 @@ public class AddProduct {
         double price = read.nextDouble();
 
         return new Product(fName, pName, code, quantity, price);
-   }
+    }
 }
