@@ -24,6 +24,10 @@ public class HistoryRecord {
         this.productCode = productCode;
         this.quantity = quantity;
     }
+    public static List<HistoryRecord> getAllRecords() {
+    return historyRecords;
+}
+
 
     public static void addRecord(HistoryRecord record) {
         historyRecords.add(record);

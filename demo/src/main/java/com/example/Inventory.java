@@ -1,11 +1,17 @@
+package com.example;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.Product;
 
 public class Inventory {
     private List<Product> products;
 
     public Inventory() {
         this.products = new ArrayList<>();
+    }
+
+    public List<Product> getProducts() {
+    return products;
     }
 
     public void addProduct(Product product) {
