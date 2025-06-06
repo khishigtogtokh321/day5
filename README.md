@@ -1,46 +1,31 @@
-# Барааны бүртгэлийн систем
-"Барааны бүртгэлийн систем" нь жижиг, дунд хэмжээний байгууллага, дэлгүүрт зориулсан барааны мэдээллийг удирдах зориулалттай. Энэ систем нь хэрэглэгчээс текст хэлбэрээр мэдээлэл авах, мөн текст хэлбэрээр мэдээлэл буцаан харуулах ажилладаг бөгөөд дараах гол үйлдлүүдийг гүйцэтгэдэг: бараа нэмэх, устгах, архивлах, бараа борлуулах, нөөц харах, санхүүгийн тайлан харах хийх.
- 
- Тухайн систем нь JAVA програмчлалын хэл дээр бичэгдсэн бөгөөд Архивлах функц нь барааг бүр мөсөн устгахын оронд хадгалагдсан байдлаар үлдээж, мэдээлэл алдагдахаас сэргийлдэг. Үүнд дууссан бараа, засвартай бараа, бүтээгдэхүүний хугацаа нь дууссан бараа зэрэг ордог. 
+# Бараа удирдлагын систем
+"Бараа удирдлагын систем" нь жижиг, дунд хэмжээний байгууллага, дэлгүүрт зориулсан барааны мэдээллийг удирдах зориулалттай. Энэ систем нь хэрэглэгч бүр өөрийн үйлдлийг тэмдэглэж, хэзээ, ямар бараа нэмсэн/авсныг бүртгэж, нөөц хяналтын процессыг автоматжуулж бараа бүрийн мэдээллийг хадгалах, шалгах, тайлагнахад хялбар болгох үйлдлүүдийг гүйцэтгэдэг. Системийн нь бараа бүртгэх, хадгалах бараа нэмж, нөөц нэмэгдүүлэх бараа авах үед тоо ширхэгийг хасах хэрэглэгч бүрийн үйлдлийн түүхийг хадгалах агуулахын одоогийн нөөцийн мэдээллийг жагсааж харуулах үүрэгтэй. 
+  
+Манай бүтээгдэхүүн Product, AddProduct, GetProduct, Inventory, HistoryRecord гэсэн 5 class -аас бүрдэж байгаа.
 
-Манай бүтээгдэхүүн Baraa, ArchivtHadgalah, HereglegchiinTses, NootsUdirdlaga, SankhuuUdirdlaga, ZasvartUdirdlaga, Ehleh гэсэн 7 class -аас бүрдэж байгаа
+- Product класс нь нэгж бүтээгдэхүүний мэдээллийг хадгалах.
 
-Үүнд: 
+- Inventory класс нь нийт бараа бүтээгдэхүүний жагсаалтыг харуулах.
 
--Baraa
- - String ner
- - String code
- - int shirheg
- - double une
- - boolean zaswartai
- - localDate ognoo   гэсэн гишүүн өгөгдөлтэй , 
- - zasvartOruul , zasvartDuussan, shirhegNem, shirheghasah гэсэн функцуудтай
-    
--ArchivtHadgalah
-- List<Baraa> arhiv  гэсэн гишүүн өгөгдөлтэй,
-- arhivtOruulah, archivtHadgalah, haruulah гэсэн функцуудтай
-    
--HereglegchiinTses
- - noots
- - sanhuu
- - zasvar
- - arhiv
- - orolt гэсэн гишүүн өгөгдөлтэй
- - menuHarah, baraaNemeh, borluulah, zasvarOruulah, arhivtOruulah гэсэн функцуудтай
+- HistoryRecord класс нь бүтээгдэхүүнтэй холбоотой үйлдлийн түүхийг хадгалдаг.
 
--NootsUdirdlaga
-- baraanuud гэсэн гишүүн өгөгдөлтэй  
-- baraaNemeh, borluulah, haruulah, baraaAwah, ustgah  функцуудтай
+- AddProduct класс нь шинэ бүтээгдэхүүнийг системд нэмэх.
 
--SankhuuUdirdlaga 
- - orlogo
- - zarlaga гэсэн гишүүн өгөгдөлтэй 
- - orlogoNemeh, zarlagaHarah , tailan гэсэн функцуудтай
-- ZasvarUdirdlaga
- - zasvartai гэсэн гишүүн өгөгдөлтэй , zasvartOruulah, zasvarDuussan, haruulah  гэсэн функцуудтай
+- GetProduct класс нь системээс тодорхой бүтээгдэхүүн авах үүрэгтэй.
 
-UML diagram: 
-	
+
+UML diagram:
+
+![image](https://github.com/user-attachments/assets/7bfae343-31a7-4172-b680-9aca09968526)
+
+Үр дүн: 
+
+  ![Screenshot 2025-06-06 003031](https://github.com/user-attachments/assets/f4f3be7f-bf6b-4e84-91e4-3cb035069219)
+  ![Screenshot 2025-06-06 003041](https://github.com/user-attachments/assets/5be7b70c-366e-42da-abef-0362ae878f70)
+
+
+
+
 	
 	
 	

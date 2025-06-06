@@ -9,34 +9,42 @@ public class Inventory {
     }
 
     public void addProduct(Product product) {
-        products.add(product);
-        System.out.println("Амжилттай нэмлээ.");
-    }
-
-    public void getProduct(Product product) {
-        String code = product.getCode();
-        double quantity = product.getQuantity();
         boolean found = false;
-
         for (Product p : products) {
-            if (p.code.equals(code)) {
-                if (p.quantity >= quantity) {
-                    found = true;
-                    p.quantity -= quantity;
-                    System.out.printf("%s кодтой %.1f ширхэг %s бараа нөөцөөс хасагдлаа.\n",
-                            p.code, quantity, p.productName);
-                    return;
-                } else {
-                    System.out.println("Хангалттай тоо ширхэг байхгүй байна.");
-                    return;
-                }
+            if (p.getCode().equals(product.getCode())) {
+                p.quantity += product.getQuantity();
+                p.price = product.getPrice();  // Шинэ үнэ оруулж болно, эсвэл бусад арга
+                found = true;
+                break;
             }
         }
         if (!found) {
-            System.out.println("Бараа олдсонгүй.");
+            products.add(product);
         }
-    }
+        System.out.println("Амжилттай нэмлээ.");
+    }    
+
+    public boolean getProduct(Product product) {
+        String code = product.getCode();
+        double quantity = product.getQuantity();
     
+        for (Product p : products) {
+            if (p.code.equals(code)) {
+                if (p.quantity >= quantity) {
+                    p.quantity -= quantity;
+                    System.out.printf("%s кодтой %.1f ширхэг %s бараа нөөцөөс хасагдлаа.\n",
+                            p.code, quantity, p.productName);
+                    return true;  // Амжилттай авсан
+                } else {
+                    System.out.println("Хангалттай тоо ширхэг байхгүй байна.");
+                    return false;
+                }
+            }
+        }
+    
+        System.out.println("Бараа олдсонгүй.");
+        return false;
+    }    
 
     public void listInventory() {
         System.out.println("\nНөөцийн жагсаалт:");

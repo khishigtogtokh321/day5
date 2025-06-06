@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Product {
@@ -35,31 +36,48 @@ public class Product {
             System.out.println("\n1. Бараа нэмэх");
             System.out.println("2. Бараа авах");
             System.out.println("3. Нөөц харах");
+            System.out.println("4. Түүх харах");
             System.out.println("0. Гарах");
             System.out.print("Сонголтоо хийнэ үү: ");
             int choice = sc.nextInt();
-            sc.nextLine(); // newline авах
+            sc.nextLine(); 
 
             if (choice == 1) {
                 AddProduct addProduct = new AddProduct();
                 Product product = addProduct.addProduct();
                 inventory.addProduct(product);
+                HistoryRecord.addRecord(new HistoryRecord(HistoryRecord.ActionType.ADD, LocalDateTime.now(), product.getFromName(), product.getProductName(), product.getCode(), product.getQuantity()));
             } 
             else if (choice == 2) {
                 GetProduct getProduct = new GetProduct();
                 Product product = getProduct.getProduct();
-                inventory.getProduct(product);
+                boolean success = inventory.getProduct(product);
+                if (success) {
+                    HistoryRecord.addRecord(new HistoryRecord(
+                        HistoryRecord.ActionType.GET,
+                        LocalDateTime.now(),
+                        product.getFromName(),
+                        product.getProductName(),
+                        product.getCode(),
+                        product.getQuantity()));
+                }
             } 
             else if (choice == 3) {
                 inventory.listInventory();
 
-            } else if (choice == 0) {
+            }
+            else if (choice == 4) {
+                HistoryRecord.listHistory();
+            }
+
+            else if (choice == 0) {
                 System.out.println("Системээс гарлаа.");
                 break;
 
-            } else {
+            } 
+            else {
                 System.out.println("Буруу сонголт.");
-            }
+            }  
         }
         sc.close();
     }
